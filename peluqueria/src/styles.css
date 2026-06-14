@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+/* Definición de la paleta Aesthetic */
+:root {
+  --color-fondo: #FDFBF7;       /* Blanco roto / Arena claro */
+  --color-verde: #4A5D4E;       /* Verde Oliva Botánico */
+  --color-verde-hover: #3B4B3E; /* Verde más oscuro para botones al pasar el ratón */
+  --color-madera: #B08968;      /* Tono madera cálido */
+  --color-texto: #2F2E2C;       /* Antracita suave */
+  --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+}
