@@ -1,0 +1,278 @@
+/* Contenedor Grid General */
+.booking-section {
+  padding: 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.booking-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.booking-header h2 {
+  color: var(--color-verde);
+  font-weight: 300;
+  font-size: 2.2rem;
+  margin: 10px 0;
+}
+
+.booking-header p {
+  color: var(--color-texto);
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Equilibrio perfecto entre paneles */
+  gap: 50px;
+  align-items: start;
+}
+
+/* ========================================================= */
+/* PANEL IZQUIERDO: FORMULARIO Y BOTONES                     */
+/* ========================================================= */
+.booking-form {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(176, 137, 104, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-verde);
+  margin-bottom: 10px;
+}
+
+.custom-select, .custom-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(176, 137, 104, 0.3);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+}
+
+.custom-select:focus, .custom-input:focus {
+  border-color: var(--color-verde);
+}
+
+/* Rejilla de Horas */
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.slot-btn {
+  background: white;
+  border: 1px solid rgba(74, 93, 78, 0.3);
+  color: var(--color-verde);
+  padding: 12px 5px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.slot-btn:hover {
+  background: var(--color-madera-claro);
+  color: var(--color-texto);
+  border-color: var(--color-madera);
+}
+
+/* Estado Activo cuando se pincha */
+.slot-btn.active {
+  background: var(--color-verde) !important;
+  color: white !important;
+  border-color: var(--color-verde) !important;
+  box-shadow: 0 4px 10px rgba(74, 93, 78, 0.2);
+}
+
+.no-slots {
+  color: var(--color-madera);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+/* ========================================================= */
+/* PANEL DERECHO: TARJETA RESUMEN PRESTIGE                   */
+/* ========================================================= */
+.aesthetic-card {
+  background: #ffffff !important;
+  padding: 40px 35px !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(176, 137, 104, 0.3) !important;
+  box-shadow: 0 15px 40px rgba(74, 93, 78, 0.06) !important;
+  box-sizing: border-box;
+}
+
+.card-header-decor {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.decor-leaf {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.card-header-decor h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--color-verde);
+  letter-spacing: 0.5px;
+}
+
+.decor-sub {
+  margin: 5px 0 0 0;
+  font-size: 0.75rem;
+  color: var(--color-madera);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Filas del Resumen con borde madera izquierdo */
+.summary-item {
+  background-color: var(--color-fondo) !important;
+  padding: 14px 18px !important;
+  border-radius: 14px !important;
+  margin-bottom: 14px !important;
+  border-left: 4px solid var(--color-madera) !important;
+  box-sizing: border-box;
+}
+
+.item-label {
+  display: block;
+  font-size: 0.72rem;
+  color: #7c7a76;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.item-value-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-icon { font-size: 1.1rem; }
+
+.item-value {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-texto);
+}
+
+.font-highlight {
+  color: var(--color-verde) !important;
+  font-weight: 600 !important;
+}
+
+.no-time {
+  color: var(--color-madera);
+  font-style: italic;
+}
+
+/* Caja de Precios Estilizada */
+.price-box {
+  background: rgba(74, 93, 78, 0.07) !important;
+  padding: 18px 22px !important;
+  border-radius: 14px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin: 25px 0 !important;
+  border: 1px dashed var(--color-verde) !important;
+  box-sizing: border-box;
+}
+
+.price-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-verde);
+}
+
+.price-amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-verde);
+}
+
+/* BOTÓN DE RESERVA REDONDEADO */
+.btn-confirmar-premium {
+  width: 100% !important;
+  background-color: var(--color-verde) !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 16px !important;
+  border-radius: 30px !important;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 93, 78, 0.2);
+  display: block;
+  font-family: inherit;
+}
+
+.btn-confirmar-premium:hover:not(:disabled) {
+  background-color: var(--color-verde-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 93, 78, 0.35);
+}
+
+.btn-confirmar-premium:disabled {
+  background-color: #d2cbd4 !important;
+  color: #9c969d !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+.test-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  background: #fffcf7;
+  border: 1px solid rgba(176, 137, 104, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.badge-text {
+  font-size: 0.75rem;
+  color: var(--color-madera);
+  font-weight: 500;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}

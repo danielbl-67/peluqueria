@@ -1,1 +1,113 @@
-<p>citas works!</p>
+<div class="booking-section-container">
+  
+  <div *ngIf="rolActivo === 'cliente' || rolActivo === 'administrador'">
+    <app-reserva-cliente 
+      [peluqueros]="peluqueros"
+      [horariosDisponibles]="horariosDisponibles"
+      [fechaSeleccionada]="fechaSeleccionada"
+      [horaSeleccionada]="horaSeleccionada"
+      (onCambioFiltro)="recargarHorariosPadre($event)"
+      (onHoraElegida)="fijarHoraPadre($event)"
+      (onConfirmar)="procesarReservaPadre()">
+    </app-reserva-cliente>
+  </div>
+
+  <div *ngIf="rolActivo === 'peluquero' || rolActivo === 'administrador'">
+    <app-panel-empleados
+      [peluqueros]="peluqueros"
+      [agendaPeluquero]="agendaPeluquero"
+      (onCambioEmpleado)="filtrarAgendaPadre($event)">
+    </app-panel-empleados>
+  </div>
+
+  <div *ngIf="rolActivo === 'administrador'" class="admin-master-panel">
+    <hr class="divider-heavy">
+    <h2>👑 Panel de Gestión Global (Modo Administrador)</h2>
+    <p class="admin-sub">Haz clic sobre cualquier estilista para ver y alterar su agenda de clientes en tiempo real.</p>
+
+    <div class="admin-grid-layout">
+      
+      <div class="admin-card-box">
+  <h3>{{ editandoPeluquero ? '📝 Modificar Estilista' : '✅ Añadir Nuevo Estilista' }}</h3>
+  
+  <div class="admin-form-group">
+    <input type="text" class="custom-input" [(ngModel)]="formPeluquero.nombre" placeholder="Nombre completo del peluquero">
+    <input type="text" class="custom-input" [(ngModel)]="formPeluquero.specialty" placeholder="Especialidad (ej: Experto en Barbas)">
+    <input type="text" class="custom-input" [(ngModel)]="formPeluquero.fotoUrl" placeholder="URL de la fotografía (Unsplash)">
+    
+    <div class="admin-form-buttons">
+      <button class="btn-confirmar-premium small-btn" (click)="guardarPeluqueroAdmin()">
+        {{ editandoPeluquero ? 'Actualizar' : 'Dar de Alta' }}
+      </button>
+      <button *ngIf="editandoPeluquero" type="button" class="btn-cancelar-admin" (click)="limpiarFormPeluquero()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+        <h4 class="sub-list-title">Selecciona un Estilista para ver su agenda:</h4>
+        <div class="quick-staff-list">
+          <div *ngFor="let p of peluqueros" 
+               class="staff-row-item interactive-row" 
+               [ngClass]="{'row-selected': empleadoFiltroId === p.id}"
+               (click)="seleccionarPeluqueroAdmin(p)">
+            <span><strong>{{ p.nombre }}</strong> <small style="display:block; color:#777;">{{ p.especialidad }}</small></span>
+            <div class="staff-actions">
+              <button class="action-link delete-link" (click)="borrarPeluqueroAdmin(p.id, $event)">🗑️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card-box">
+        <h3>📅 Agenda Exclusiva de: <span style="color: var(--color-verde);">{{ empleadoFiltroId || 'Peluquero no seleccionado' }}</span></h3>
+        <p class="box-desc">Gestiona los clientes activos de este estilista. Puedes moverlos, cambiar su hora o cancelar la reserva.</p>
+
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Fecha/Hora</th>
+                <th>Mover Estilista</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cita of agendaPeluquero">
+                <td><strong>{{ cita.nombre_cliente }}</strong></td>
+                <td>{{ cita.fecha_de_reserva | date:'dd/MM' }} — {{ cita.hora_de_reserva.substring(0,5) }} hs</td>
+                <td>
+                  <select class="custom-select table-select" (change)="moverCitaAdmin(cita.id, $event)">
+                    <option value="" disabled selected>Reasignar a...</option>
+                    <option *ngFor="let p of peluqueros" [value]="p.id" [disabled]="p.id === cita.peluquero_id">
+                      {{ p.nombre }}
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <div style="display: flex; gap: 8px;">
+                    <button class="action-link" (click)="modificarCitaAdmin(cita)" title="Modificar fecha/hora">✏️</button>
+                    <button class="action-link" (click)="eliminarCitaAdmin(cita.id)" title="Eliminar cita permanentemente" style="color:red;">❌</button>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngIf="agendaPeluquero.length === 0">
+                <td colspan="4" class="no-data-td">🌿 No hay citas agendadas para este peluquero de momento.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="test-role-selector">
+    <span class="badge-test">⚙️ Pruebas:</span>
+    <button (click)="alternarRolPrueba('cliente')" [className]="rolActivo === 'cliente' ? 'btn-test active' : 'btn-test'">Cliente</button>
+    <button (click)="alternarRolPrueba('peluquero')" [className]="rolActivo === 'peluquero' ? 'btn-test active' : 'btn-test'">Peluquero</button>
+    <button (click)="alternarRolPrueba('administrador')" [className]="rolActivo === 'administrador' ? 'btn-test active' : 'btn-test'">Admin</button>
+  </div>
+
+</div>

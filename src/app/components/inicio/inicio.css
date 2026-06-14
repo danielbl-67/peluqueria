@@ -1,0 +1,97 @@
+.hero-container {
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Lógica del Carrusel CSS */
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: carruselAnimado 15s infinite;
+}
+
+/* Desfase de tiempos para que las imágenes roten */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+
+@keyframes carruselAnimado {
+  0% { opacity: 0; transform: scale(1); }
+  8% { opacity: 1; }
+  33% { opacity: 1; }
+  41% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 0; }
+}
+
+/* Capa oscura sutil para que el texto sea legible */
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(47, 46, 44, 0.4); /* Mezcla con --color-texto */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: #FDFBF7;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  color: var(--color-madera-claro);
+  display: block;
+  margin-bottom: 15px;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.btn-hero {
+  background-color: var(--color-verde);
+  color: white;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-hero:hover {
+  background-color: var(--color-verde-hover);
+  transform: translateY(-2px);
+}

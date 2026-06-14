@@ -1,0 +1,103 @@
+<div class="booking-section">
+  <div class="booking-header">
+    <span class="section-title">RESERVAS</span>
+    <h2>Agenda tu cita al instante</h2>
+    <p>Selecciona tu estilista preferido, el día y la hora. Las citas duran 30 minutos.</p>
+  </div>
+
+  <div class="booking-grid">
+    
+    <div class="booking-form">
+      <div class="form-group">
+        <label>1. Selecciona Estilista</label>
+        <select class="custom-select" [(ngModel)]="datos.peluqueroId" (change)="notificarCambios()">
+          <option *ngFor="let p of peluqueros" [value]="p.id">
+            {{ p.nombre }} — {{ p.especialidad }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>2. Escoge un Día</label>
+        <input type="date" class="custom-input" [(ngModel)]="datos.fecha" (change)="notificarCambios()">
+      </div>
+
+      <div class="form-group">
+        <label>3. Horas Disponibles (Bloques de 30 min)</label>
+        <div class="time-slots">
+          <button *ngFor="let hora of horariosDisponibles" 
+                  type="button"
+                  class="slot-btn" 
+                  [ngClass]="{'active': horaSeleccionada === hora}"
+                  (click)="seleccionarHora(hora)">
+            {{ hora }}
+          </button>
+        </div>
+        <p *ngIf="horariosDisponibles.length === 0" class="no-slots">
+          🌿 No quedan huecos libres para este estilista en la fecha seleccionada.
+        </p>
+      </div>
+    </div>
+
+    <div class="checkout-card aesthetic-card">
+      <div class="card-header-decor">
+        <span class="decor-leaf">🌿</span>
+        <h3>Tu Experiencia Botánica</h3>
+        <p class="decor-sub">Detalles de tu próxima cita</p>
+      </div>
+      
+      <div class="summary-details">
+        <div class="summary-item">
+          <span class="item-label">Estilista seleccionado</span>
+          <div class="item-value-wrapper">
+            <span class="item-icon">👤</span>
+            <span class="item-value font-highlight">{{ obtenerNombrePeluquero() }}</span>
+          </div>
+        </div>
+
+        <div class="summary-item">
+          <span class="item-label">Fecha del servicio</span>
+          <div class="item-value-wrapper">
+            <span class="item-icon">📅</span>
+            <span class="item-value">{{ fechaSeleccionada | date:'dd / MM / yyyy' }}</span>
+          </div>
+        </div>
+
+        <div class="summary-item">
+          <span class="item-label">Hora reservada</span>
+          <div class="item-value-wrapper">
+            <span class="item-icon">⏰</span>
+            <span class="item-value" [ngClass]="{'no-time': !horaSeleccionada, 'font-highlight': horaSeleccionada}">
+              {{ horaSeleccionada ? horaSeleccionada + ' hr' : 'Por seleccionar...' }}
+            </span>
+          </div>
+        </div>
+
+        <div class="summary-item">
+          <span class="item-label">Duración estimada</span>
+          <div class="item-value-wrapper">
+            <span class="item-icon">⏳</span>
+            <span class="item-value">30 minutos (Bloque optimizado)</span>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <span class="price-label">Total a pagar en el salón</span>
+          <span class="price-amount">25,00 €</span>
+        </div>
+      </div>
+
+      <button class="btn-confirmar-premium" 
+              [disabled]="!horaSeleccionada" 
+              (click)="lanzarConfirmacion()">
+        Confirmar Reserva de Cita 
+      </button>
+      
+      <div class="test-badge">
+        <span class="badge-icon">⚙️</span>
+        <span class="badge-text">Modo demostración activo · Sin pagos obligatorios</span>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,11 +1,20 @@
 <nav class="navbar">
   <div class="logo">
-    <h1>ISMAEL</h1>
+    <h1>Daniel</h1>
     <small>Peluquería de Caballeros</small>
   </div>
-  <ul class="menu">
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#sobre-nosotros">Sobre la Peluquería</a></li>
-    <li><a href="#citas" class="btn-reserva">Pedir Cita</a></li>
-  </ul>
+  
+  <div class="menu-container">
+    <a href="#inicio" 
+       [ngClass]="{'active-link': seccionActiva === 'inicio'}" 
+       (click)="fijarActiva('inicio')">Inicio</a>
+
+    <a href="#sobre-nosotros" 
+       [ngClass]="{'active-link': seccionActiva === 'sobre-nosotros'}" 
+       (click)="fijarActiva('sobre-nosotros')">Sobre la Peluquería</a>
+
+    <a href="#citas" 
+       [ngClass]="{'btn-reserva-active': seccionActiva === 'citas', 'btn-reserva-inactive': seccionActiva !== 'citas'}" 
+       (click)="fijarActiva('citas')">Pedir Cita</a>
+  </div>
 </nav>

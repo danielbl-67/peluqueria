@@ -1,0 +1,109 @@
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.about-info {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+.about-text { flex: 1; }
+
+.section-title {
+  color: var(--color-madera);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.about-text h2 {
+  font-size: 2.3rem;
+  font-weight: 300;
+  color: var(--color-verde);
+  margin: 0 0 20px 0;
+}
+
+.about-text p {
+  line-height: 1.8;
+  color: var(--color-texto);
+  font-weight: 300;
+}
+
+.about-img {
+  flex: 1;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.about-img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Estilos de las Tarjetas de Peluqueros */
+.staff-section { text-align: center; }
+
+.staff-section h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-verde);
+  margin-bottom: 5px;
+}
+
+.staff-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-madera);
+  margin-bottom: 50px;
+}
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.staff-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(176, 137, 104, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.staff-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.staff-card h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: var(--color-texto);
+}
+
+.staff-card span {
+  font-size: 0.85rem;
+  color: var(--color-madera);
+}

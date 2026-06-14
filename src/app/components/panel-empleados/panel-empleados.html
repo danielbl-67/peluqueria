@@ -1,0 +1,30 @@
+<p>panel-empleados works!</p>
+<div class="panel-empleados">
+  <div class="panel-header-box">
+    <h3>💼 Panel Interno: Consultar Mi Agenda</h3>
+    <p>Selecciona tu nombre para verificar los bloques horaria de 30 minutos bloqueados en Supabase.</p>
+  </div>
+  
+  <div class="empleado-select-row">
+    <label class="select-inline-label">Identificador de Estilista:</label>
+    <select class="custom-select short-select" [(ngModel)]="empleadoId" (change)="onSeleccionCambiada()">
+      <option *ngFor="let p of peluqueros" [value]="p.id">{{ p.nombre }}</option>
+    </select>
+  </div>
+
+  <div class="agenda-list">
+    <div *ngFor="let cita of agendaPeluquero" class="agenda-card">
+      <div class="agenda-card-left">
+        <span class="agenda-time">⏰ {{ cita.hora_de_reserva.substring(0,5) }} hs</span>
+        <span class="agenda-date">📅 {{ cita.fecha_de_reserva | date:'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="agenda-card-right">
+        <span class="agenda-client">👤 {{ cita.nombre_cliente }}</span>
+      </div>
+    </div>
+    
+    <div *ngIf="agendaPeluquero.length === 0" class="empty-agenda-box">
+      <p class="no-citas-text">No registras bloques ocupados para los próximos días. 🌿</p>
+    </div>
+  </div>
+</div>

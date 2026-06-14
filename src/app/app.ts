@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { Navbar } from './components/navbar/navbar';
+import { NavbarComponent as Navbar } from './components/navbar/navbar';
 import { Inicio } from './components/inicio/inicio';
 import { SobreNosotros } from './components/sobre-nosotros/sobre-nosotros';
-import { Citas } from './components/citas/citas';
+import { CitasComponent as Citas } from './components/citas/citas';
 
 @Component({
   selector: 'app-root',
