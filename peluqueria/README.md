@@ -1,3 +1,54 @@
+# 🌿 Botánica Peluquería - Sistema de Gestión de Citas
+
+¡Bienvenido al repositorio de **Botánica Peluquería**! Una aplicación web moderna, fluida y con una estética _aesthetic_ minimalista, diseñada específicamente para optimizar la reserva de citas de belleza y peluquería en tiempo real.
+
+Desarrollado con **Angular**, este proyecto destaca por una interfaz limpia con una paleta de colores inspirada en la naturaleza (verde botánico y tonos madera) y una barra de navegación superior completamente centrada.
+
+---
+
+## ✨ Características Principales
+
+- **Diseño Aesthetic & Minimalista:** Paleta de colores orgánicos basada en verde oliva, tonos arena, madera cálida y blancos rotos.
+- **Navegación Centralizada:** Menú superior elegante y fijo (`sticky navbar`) optimizado para una experiencia fluida.
+- **Arquitectura de Sola Página (SPA):** Navegación suave por secciones sin recargar el navegador.
+- **Motor de Citas Reactivo (Bloques de 30 min):** Gestión inteligente del tiempo donde los huecos se actualizan al instante usando **RxJS** y estados compartidos.
+- **Pasarela de Pago Simulada:** Formulario integrado interactivo con validación visual para simular la confirmación del pago de la reserva.
+- **Gestión de Staff:** Tarjetas de presentación de estilistas para que el cliente elija a su profesional favorito.
+
+---
+
+## 🎨 Paleta de Colores (CSS Variables)
+
+El diseño visual está centralizado en `src/styles.css` mediante las siguientes variables:
+
+- `--color-fondo:` `#FDFBF7` (Blanco roto / Arena claro)
+- `--color-verde:` `#4A5D4E` (Verde Oliva Botánico)
+- `--color-madera:` `#B08968` (Tono madera cálido)
+- `--color-texto:` `#2F2E2C` (Antracita suave para lectura cómoda)
+
+---
+
+## 🛠️ Estructura del Proyecto
+
+La arquitectura sigue las mejores prácticas de modularidad de Angular:
+
+```text
+src/app/
+│
+├── components/
+│   ├── navbar/         # Barra de navegación central superior
+│   ├── inicio/         # Sección de bienvenida (Hero)
+│   ├── sobre-nosotros/ # Información de la peluquería y selección de personal
+│   └── citas/          # Módulo integrado de Calendario + Horas + Pago Simulado
+│
+├── services/
+│   └── citas.service.ts # Lógica reactiva, control de horas de 30 min y estado de reservas
+│
+└── styles.css          # Estilos globales y tokens de diseño aesthetic
+```
+
+---
+
 # Peluqueria
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.0.
