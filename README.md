@@ -1,6 +1,6 @@
 # 🌿 Botánica Peluquería - Sistema de Gestión de Citas
 
-¡Bienvenido al repositorio de **Botánica Peluquería**! Una aplicación web moderna, fluida y con una estética _aesthetic_ minimalista, diseñada específicamente para optimizar la reserva de citas de belleza y peluquería en tiempo real.
+¡Bienvenido al repositorio de **Peluquería**! Una aplicación web moderna, fluida y con una estética _aesthetic_ minimalista, diseñada específicamente para optimizar la reserva de citas de belleza y peluquería en tiempo real.
 
 Desarrollado con **Angular**, este proyecto destaca por una interfaz limpia con una paleta de colores inspirada en la naturaleza (verde botánico y tonos madera) y una barra de navegación superior completamente centrada.
 
