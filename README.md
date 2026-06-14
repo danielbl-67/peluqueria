@@ -1,4 +1,4 @@
-# 🌿 Botánica Peluquería - Sistema de Gestión de Citas
+# 🌿 Peluquería Daniel - Sistema de Gestión de Citas
 
 ¡Bienvenido al repositorio de **Peluquería**! Una aplicación web moderna, fluida y con una estética _aesthetic_ minimalista, diseñada específicamente para optimizar la reserva de citas de belleza y peluquería en tiempo real.
 
